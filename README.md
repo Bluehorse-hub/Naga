@@ -83,7 +83,7 @@ params:
     batch_size: [16, 32, 64]
 ```
 > [!IMPORTANT]
->  `params`というセクションキーを付け、その階層に項目を**リスト型**で定義する
+>  `params`というセクションキーを付け、その階層に項目を**リスト型**で定義する  
 >  例では　`params.lr`、`params.batch_size`となっている
 
 ## 実装方法
