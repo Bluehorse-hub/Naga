@@ -1,6 +1,7 @@
 # Naga
 
-[Hydra](https://hydra.cc/docs/intro/)のようなハイパーパラメータ管理のためのライブラリ
+> [!NOTE]
+> [Hydra](https://hydra.cc/docs/intro/)のようなハイパーパラメータ管理のためのライブラリ
 
 ### 特徴
 - 一般的なPythonの文法による実装のため可読性が高い
@@ -64,7 +65,6 @@ conda install conda-forge::omegaconf
 
 ### フォルダ構成
 
-**naga**以下のフォルダは実行時に作られる
 ```
 .
 └── project
@@ -82,7 +82,7 @@ params:
     lr: [0.01, 0.02, 0.03]
     batch_size: [16, 32, 64]
 ```
-> [!CAUTION]
+> [!IMPORTANT]
 >  `params`というセクションキーを付け、その階層に項目を**リスト型**で定義する
 
 ## 実装方法
