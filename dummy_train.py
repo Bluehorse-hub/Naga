@@ -21,8 +21,8 @@ class SimpleNN(nn.Module):
         x = self.fc3(x)
         return x
 
-time_path, best_judge_list = djehuty.preparation()
-params_value_conbinations, params_name_list = djehuty.loadyaml('./config/params.yaml')
+time_path, best_judge_list = naga.preparation()
+params_value_conbinations, params_name_list = naga.loadyaml('./config/params.yaml')
 for i, (lr, batch_size) in enumerate(params_value_conbinations):
     print(i)
     
@@ -37,12 +37,12 @@ for i, (lr, batch_size) in enumerate(params_value_conbinations):
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
     num_epochs = 5
-    loss_list, dirs_path = djehuty.init()
-    dirs_path = djehuty.update_dirs_path(i, time_path, dirs_path)
+    loss_list, dirs_path = naga.init()
+    dirs_path = naga.update_dirs_path(i, time_path, dirs_path)
     print(dirs_path)
     params_value_list = [lr, batch_size]
-    djehuty.makedirs(dirs_path)
-    djehuty.makeyaml(dirs_path, params_name_list, params_value_list)
+    naga.makedirs(dirs_path)
+    naga.makeyaml(dirs_path, params_name_list, params_value_list)
     for epoch in tqdm(range(num_epochs)):
         model.train()
         running_loss = 0.0
@@ -60,8 +60,8 @@ for i, (lr, batch_size) in enumerate(params_value_conbinations):
         
     best_judge_list.append(sum(loss_list))
 
-    djehuty.plot_loss_history(loss_list, dirs_path)
+    naga.plot_loss_history(loss_list, dirs_path)
     torch.save(model.state_dict(),dirs_path + '/weight.pth')
     print("モデルが保存されました。")
 print(len(best_judge_list))
-djehuty.best_study(time_path, best_judge_list)
+naga.best_study(time_path, best_judge_list)

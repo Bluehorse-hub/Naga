@@ -24,7 +24,7 @@ git clone https://github.com/Bluehorse-hub/Naga.git
 リポジトリ内に入る
 
 ```
-cd naga
+cd Naga
 ```
 
 設定ファイルから環境を複製する
@@ -39,10 +39,16 @@ conda env create -n naga -f env.yaml
 conda activate naga
 ```
 
+設定ファイルを読み込むためのライブラリを入れる
+
+```
+conda install conda-forge::omegaconf
+```
+
 `dummy_train.py`を実行して結果を見る
 
 ```
-python dummy_tarin.py
+python dummy_train.py
 ```
 
 ## 事前準備
