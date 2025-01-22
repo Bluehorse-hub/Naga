@@ -17,7 +17,7 @@ def init():
     return loss_list, dirs_path
 
 def makedirs(dirs_path):
-    os.makedirs(dirs_path, exist_ok=False)
+    os.makedirs(dirs_path, exist_ok=True)
 
 def update_dirs_path(id, time_path, dirs_path):
     dirs_path = 'naga/' + time_path + '/' + dirs_path + str(id)
