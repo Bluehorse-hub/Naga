@@ -4,6 +4,10 @@ from itertools import product
 from matplotlib import pyplot as plt
 from omegaconf import OmegaConf
 
+'''
+実験管理用ライブラリ”Naga”
+'''
+
 def preparation():
     date_path = datetime.now().strftime("%Y-%m-%d")
     clock_path = datetime.now().strftime("%H-%M")
